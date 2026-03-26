@@ -152,7 +152,6 @@ nav a,
 p a {
   color: #1a8a8a;
 }
-
 ul li {
   color: #2d6a6a;
 }
@@ -165,11 +164,9 @@ ul li {
 body > h1 {
   color: #299898;
 }
-
 tr > td {
   border-color: #5cc8c8;
 }
-
 ul > li {
   padding-left: 4px;
 }
@@ -185,5 +182,121 @@ h3 + p {
 
 hr + p {
   color: #2d6a6a;
+}
+
+/* LAB 5 — div, span, position, float, pseudoclasses, pseudoelements */
+
+/* 1. SPAN styling */
+.accent-word {
+  color: #1a8a8a;
+  font-weight: bold;
+  background: rgba(92,200,200,0.15);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* 2. DIV blocks */
+.sticker-card {
+  border: 1px solid #b8e8e8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  background: #f5fffe;
+}
+
+.city-block {
+  padding: 10px 0;
+  border-bottom: 1px dashed #5cc8c8;
+  margin-bottom: 16px;
+}
+
+.event-block {
+  background: #f0fff8;
+  border-left: 4px solid #50c878;
+  padding: 10px 14px;
+  margin: 12px 0;
+}
+
+.meme-block {
+  text-align: center;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+/* 3. FLOAT — image floats left, text wraps around it */
+.city-block img {
+  float: left;
+  margin: 0 16px 10px 0;
+  max-width: 350px;
+}
+.city-block p {
+  overflow: hidden;
+}
+.city-block::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 4. POSITION */
+nav {
+  position: relative;
+}
+.sticker-card {
+  position: relative;
+}
+.sticker-card img {
+  position: relative;
+}
+
+/* fixed back-to-top hint in corner */
+body::after {
+  content: "↑ top";
+  position: fixed;
+  bottom: 18px;
+  right: 22px;
+  background: #5cc8c8;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* 5. PSEUDOCLASSES */
+a:link    { color: #1a8a8a; }
+a:visited { color: #4fbba0; }
+a:hover   { color: #64b9ae; }
+a:active  { color: #0d5f5f; }
+
+li:first-child {
+  font-weight: bold;
+  color: #1a8a8a;
+}
+
+/* 6. PSEUDOELEMENTS */
+h2::before {
+  content: "— ";
+  color: #5cc8c8;
+}
+
+h2::after {
+  content: " —";
+  color: #5cc8c8;
+}
+
+.sticker-card p::first-letter {
+  font-size: 150%;
+  color: #1a8a8a;
+  font-weight: bold;
+}
+
+.city-block p::first-line {
+  font-weight: bold;
+  color: #1a8a8a;
+}
+
+nav::before {
+  content: "☰ ";
+  color: #5cc8c8;
 }
 
