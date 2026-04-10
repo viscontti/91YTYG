@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #f0fafa !important;
+  background-color: #f0fafa;
   font-family: "Trebuchet MS", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.6;
@@ -246,7 +246,7 @@ nav {
   position: relative;
 }
 .sticker-card img {
-  position: relative;
+  position: static;
 }
 
 /* fixed back-to-top hint in corner */
@@ -300,3 +300,7 @@ nav::before {
   color: #5cc8c8;
 }
 
+.variations-grid {
+  display: block;
+  width: 100%;
+}
