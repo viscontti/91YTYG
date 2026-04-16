@@ -30,11 +30,16 @@
 
 <hr>
 
+<div id="dom-demo" style="background:#e8fafa; border:1px solid #5cc8c8;
+     padding:12px 16px; border-radius:6px; margin:10px 0; min-height:50px;">
+    Click button below "News" to see our tidings.
+</div>
+
 <h1 id="main-title" align="center">
     91YTYG <img src="mascots/1_orignial.png" alt="Original Iron mascot" width="60" height="60"> &mdash; The Iron Mascot
 </h1>
 <script>
-    document.write('<div id="doc-write-banner" style="background:#d4f5e9; ' +
+    document.write('<div style="background:#d4f5e9; ' +
         'padding:8px 16px; border-left:4px solid #1a8a8a; margin-bottom:10px; ' +
         'font-family:Trebuchet MS,Arial;">' +
         'NEW PACK: SPRING COLLECTION' +
@@ -43,16 +48,16 @@
 
 <script>
        alert("Welcome to our website Iron Fan!");
-       var name = prompt("What's your name, Iron fan?", "");
+       var name = prompt("Do you want to know a little more about the Iron?)", "");
        let ok = confirm("Let's go to the website!"); 
-    
 </script>
 
-    <!-- <button onclick="dialogWithUser()"
+    <button onclick="dialogWithUser()"
             style="background:#5cc8c8; color:white; border:none; padding:10px 18px;
                    border-radius:6px; cursor:pointer; margin:4px; font-size:14px;">
         Dialog with User
-    </button> -->
+    </button>
+
 
     <button onclick="showDeveloper('Ostapchenko', 'Veronika')"
             style="background:#5cc8c8; color:white; border:none; padding:10px 18px;
@@ -75,33 +80,150 @@
     <button onclick="goToTravels()"
             style="background:#1a8a8a; color:white; border:none; padding:10px 18px;
                    border-radius:6px; cursor:pointer; margin:4px; font-size:14px;">
-        Go to Travels (location)
+        Go to Travels
     </button>
 
     <button onclick="highlightTitle()"
             style="background:#0d7a6a; color:white; border:none; padding:10px 18px;
                    border-radius:6px; cursor:pointer; margin:4px; font-size:14px;">
-        Highlight Title (getElementById)
+        Highlight Title 
     </button>
 
     <button onclick="highlightAllCards()"
             style="background:#0d7a6a; color:white; border:none; padding:10px 18px;
                    border-radius:6px; cursor:pointer; margin:4px; font-size:14px;">
-        Highlight All Cards (querySelectorAll)
+        Highlight All Cards 
     </button>
 
     <button onclick="domPropertiesDemo()"
             style="background:#0d7a6a; color:white; border:none; padding:10px 18px;
                    border-radius:6px; cursor:pointer; margin:4px; font-size:14px;">
-        innerHTML / textContent Demo
+        News
     </button>
 
     <button onclick="domManipulation()"
             style="background:#0d5f5f; color:white; border:none; padding:10px 18px;
                    border-radius:6px; cursor:pointer; margin:4px; font-size:14px;">
-        DOM: create/append/replace/remove
+    Special sticker
     </button>
 </div>
+
+<hr>
+<h2 id="lab7-section" style="color:#1a8a8a;">⚡ Lab 7 — Events Demo</h2>
+
+<!-- Event info display -->
+<div id="event-info" style="display:none; background:#e8fafa; border:2px solid 
+     #5cc8c8; padding:10px 14px; border-radius:6px; margin:8px 0; 
+     font-family:monospace; color:#1a8a8a;"></div>
+
+<!-- removeEventListener button -->
+<div style="margin:10px 0;">
+    <button onclick="removeObjectHandler()" 
+            style="background:#ff6b6b; color:white; border:none; padding:8px 16px;
+                   border-radius:6px; cursor:pointer; font-size:13px;">
+        🗑️ removeEventListener from Card 4
+    </button>
+    <span style="color:#2d6a6a; font-size:13px; margin-left:10px;">
+        (card 4 has object handler — click it, then remove it, then click again)
+    </span>
+</div>
+
+<!-- PART 2a: List delegation -->
+<h3 style="color:#1a8a8a;">📋 Sticker Types — click a type (delegation demo)</h3>
+<p style="color:#2d6a6a; font-size:13px;">
+    ONE onclick handler on &lt;ul&gt;, not on each &lt;li&gt;. 
+    Uses event.target.
+</p>
+<ul id="sticker-type-list" style="cursor:pointer; background:#f0fafa; 
+    border:1px solid #5cc8c8; border-radius:6px; padding:10px 24px;">
+    <li>🟢 Common — Original, Original with Glasses</li>
+    <li>🔵 Uncommon — Harry Potter, Clown, Rainbow, Bird, Santa, Smarty</li>
+    <li>🟠 Rare — Spider-Iron, Barbie</li>
+    <li>🔴 Legendary — Demon Main, Demon V1, Demon V2</li>
+    <li>✨ Special — Post-IRONic, Coal, Steampunk, Cyborg, Metal, Cyberpunk</li>
+</ul>
+<div id="list-info" style="color:#1a8a8a; font-size:13px; 
+     margin:6px 0; min-height:18px;"></div>
+
+<!-- PART 2b: Menu with data-action -->
+<h3 style="color:#1a8a8a;">🎛️ Sticker Filter Menu — data-action delegation</h3>
+<p style="color:#2d6a6a; font-size:13px;">
+    ONE addEventListener on the menu div. Each button has data-action attribute.
+</p>
+<div id="sticker-action-menu" style="display:flex; gap:8px; flex-wrap:wrap; 
+     margin:8px 0;">
+    <button data-action="show-common" 
+            style="background:#c8f0f0; color:#1a8a8a; border:1px solid #5cc8c8;
+                   padding:8px 14px; border-radius:6px; cursor:pointer;">
+        Show Common
+    </button>
+    <button data-action="show-rare"
+            style="background:#f6d0d8; color:#6b1430; border:1px solid #be7562;
+                   padding:8px 14px; border-radius:6px; cursor:pointer;">
+        Show Rare
+    </button>
+    <button data-action="show-legendary"
+            style="background:#ffe9b8; color:#6b4a10; border:1px solid #c49e44;
+                   padding:8px 14px; border-radius:6px; cursor:pointer;">
+        Show Legendary
+    </button>
+    <button data-action="show-all"
+            style="background:#5cc8c8; color:white; border:none;
+                   padding:8px 14px; border-radius:6px; cursor:pointer;">
+        Show All
+    </button>
+</div>
+<div id="menu-output" style="display:none; background:#f0fafa; 
+     border:2px solid #5cc8c8; padding:10px 14px; border-radius:6px; 
+     margin:8px 0; color:#1a8a8a;"></div>
+
+<!-- PART 2c: Behavior pattern with data-* -->
+<h3 style="color:#1a8a8a;">🧠 Behavior Pattern — data-* attributes</h3>
+<p style="color:#2d6a6a; font-size:13px;">
+    document-level click handler reads data-* attributes. 
+    No JS needed per element.
+</p>
+
+<button data-toggle-id="iron-secret-info" 
+        style="background:#1a8a8a; color:white; border:none; padding:8px 16px;
+               border-radius:6px; cursor:pointer; margin:4px;">
+    Show Info ▼
+</button>
+
+<div id="iron-secret-info" hidden 
+     style="background:#e8fafa; border:1px solid #5cc8c8; padding:12px; 
+            border-radius:6px; margin:8px 0; color:#1a8a8a;">
+    🔥 Secret Iron fact: the Original sticker was created in 2023 
+    at KPI Dorm 8. It has a 25% drop rate — the most common of all 21 variants.
+</div>
+
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin:8px 0;">
+    <span data-highlight="#d4f5e9" 
+          style="padding:8px 14px; background:#f0fafa; border:1px solid #5cc8c8;
+                 border-radius:6px; cursor:pointer; color:#1a8a8a;">
+        🟢 Click to highlight (data-highlight)
+    </span>
+    <span data-highlight="#ffe9b8"
+          style="padding:8px 14px; background:#f0fafa; border:1px solid #c49e44;
+                 border-radius:6px; cursor:pointer; color:#6b4a10;">
+        🟡 Click to highlight (data-highlight)
+    </span>
+    <span data-show-rarity="Spider-Iron: 3% drop — Rare tier custom crossover"
+          style="padding:8px 14px; background:#f0fafa; border:1px solid #be7562;
+                 border-radius:6px; cursor:pointer; color:#6b1430;">
+        🕷️ Spider-Iron info (data-show-rarity)
+    </span>
+    <span data-show-rarity="Demon Main: 1% drop — Legendary tier hellfire only"
+          style="padding:8px 14px; background:#ffe9b8; border:1px solid #c49e44;
+                 border-radius:6px; cursor:pointer; color:#6b4a10;">
+        👿 Demon info (data-show-rarity)
+    </span>
+</div>
+<div id="behavior-output" style="display:none; background:#f0fafa; 
+     border:1px solid #5cc8c8; padding:8px 14px; border-radius:6px; 
+     margin:6px 0; font-size:13px;"></div>
+
+<hr>
 
 <p align="center" style="border: 5px solid #43baba; padding: 10px 14px;">
     <b>91YTYG is a meme community built around our beloved mascot &mdash;
@@ -327,7 +449,7 @@
 
 <div class="variations-grid">
 
-<div class="sticker-card">
+<div class="sticker-card" onmouseover="onCardMouseover(event)" onmouseout="onCardMouseout(event)">
 <h3 id="original">1. Original</h3>
 <img src="mascots/1_orignial.png" alt="Original Iron mascot" width="200" height="200">
 <p><i>The one that started it all. Classic, iconic, no frills.</i></p>
@@ -479,5 +601,6 @@
 <p align="center"><i>91YTYG Meme Community &copy; 2023-2026</i></p>
 
 <script src="script.js"></script>
+<script src="events7.js"></script>
 </body>
 </html>

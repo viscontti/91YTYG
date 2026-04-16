@@ -1,6 +1,7 @@
 // 1. DIALOG WITH USER — uses alert, prompt, confirm, variables,
 //    if/else, for loop
 function dialogWithUser() {
+    alert("Let's get acquainted!")
     var name = prompt("What's your name, Iron fan?", "");
     if (!name || name.trim() === "") {
         alert("No name entered. Welcome, anonymous fan!");
@@ -35,12 +36,7 @@ function dialogWithUser() {
 
 // 2. DEVELOPER INFO FUNCTION — with parameters, default value
 function showDeveloper(lastName, firstName, role) {
-    var firstName = "Veronika"
-    var lastName = "Ostapchenko"
-    if (role === undefined) {
-        role = "Front-end Developer";
-    }
-
+   
     alert(
         "Page Developer Info:\n" +
         "Name: " + firstName + " " + lastName + "\n" +
@@ -51,8 +47,9 @@ function showDeveloper(lastName, firstName, role) {
 
 // 3. STRING COMPARISON — compare two strings, show bigger one
 function compareStrings() {
-    var str1 = prompt("Enter first string:", "Iron");
-    var str2 = prompt("Enter second string:", "Sticker");
+    alert("Write two sentences for comparing")
+    var str1 = prompt("Enter first string:", "");
+    var str2 = prompt("Enter second string:", "");
     if (str1 === null || str2 === null) {
         return;
     }
@@ -68,7 +65,7 @@ function compareStrings() {
 
 // 4. CHANGE BACKGROUND FOR 30 SECONDS using document object
 function changeBackground() {
-    var confirmed = confirm("Change page background to mint green for 30 seconds?");
+    var confirmed = confirm("Change page background to lavander for 30 seconds?");
     if (!confirmed) {
         return;
     }
@@ -115,10 +112,9 @@ function highlightTitle() {
     }
 
     if (title.style.color === "rgb(255, 107, 107)") {
-        title.style.color = "#36d5c0";
-        title.style.transform = "";
+   
     } else {
-        title.style.color = "#36d5c0";
+        title.style.color = "#02574c";
         title.style.transform = "scale(1.03)";
     }
 }
@@ -129,7 +125,7 @@ function highlightAllCards() {
     cards.forEach(function (card, index) {
         setTimeout(function () {
             card.style.borderColor = "#1a8a8a";
-            card.style.borderWidth = "7 px";
+            card.style.borderWidth = "7px";
             card.style.boxShadow = "0 0 8px rgba(26,138,138,0.4)";
         }, index * 80);
     });
@@ -144,43 +140,26 @@ function domPropertiesDemo() {
         return;
     }
 
-    // innerHTML — inserts actual HTML tags
-    demo.innerHTML =
-        "<strong>innerHTML</strong>: This is <em>HTML</em> content. " +
-        "<br><span style='color:#1a8a8a'>Tags are rendered.</span>";
+    demo.innerHTML = "<b>Iron</b> became the <span style='color:#1a8a8a;'>main mascot in 2020</span>.";
 
     setTimeout(function () {
-        // textContent — plain text only, no tags rendered
-        demo.textContent = "textContent: <strong>tags</strong> shown as plain text.";
+        demo.textContent = "We will have a new special collection for you very soon!";
 
         setTimeout(function () {
-            // nodeValue/data — modify the first text node directly
             if (demo.firstChild) {
-                demo.firstChild.nodeValue = "nodeValue/data: text node was changed directly.";
-            } else {
-                demo.textContent = "nodeValue/data: text node was changed directly.";
+                demo.firstChild.nodeValue = "The Iron has visited a new European country! You can press the 'Go to Travels' button";
+                demo.style.color = "#057146";
             }
 
             setTimeout(function () {
-                // outerHTML — replace whole demo element, then restore with new block
                 demo.outerHTML =
-                    "<div id='dom-demo' style='background:#e8fafa; border:1px solid #5cc8c8; " +
-                    "padding:12px 16px; border-radius:6px; margin:10px 0; min-height:50px;'>" +
-                    "<strong>outerHTML</strong>: The entire block was replaced and recreated." +
+                    "<div id='dom-demo' style='background:#e8fafa; border:1px solid #5cc8c8; padding:12px 16px; border-radius:6px; margin:10px 0; min-height:50px;'>" +
+                    "<b>91Ytyg</b>: was created a long time ago by students of the IK-91 group" +
                     "</div>";
-
-                setTimeout(function () {
-                    var restored = document.getElementById("dom-demo");
-                    if (restored) {
-                        restored.textContent =
-                            "Click buttons below to see JavaScript features in action.";
-                    }
-                }, 2500);
-            }, 2500);
-        }, 2500);
-    }, 2500);
+            }, 2000);
+        }, 2000);
+    }, 2000);
 }
-
 // 9. document.createElement + append/prepend/after/replaceWith + remove
 function domManipulation() {
     var grid = document.querySelector(".variations-grid");
@@ -189,48 +168,63 @@ function domManipulation() {
         return;
     }
 
-    // createElement + append
     var newCard = document.createElement("div");
     newCard.id = "js-created-card";
     newCard.className = "sticker-card";
     newCard.style.border = "2px solid #ff6b6b";
     newCard.style.background = "#fff5f5";
 
-    // createTextNode
-    var textNode = document.createTextNode("Dynamically Added Sticker!");
     var heading = document.createElement("h3");
-    heading.append("⚡ ");
-    heading.appendChild(textNode);
+    heading.textContent = "⚡ Special Sticker!";
     newCard.appendChild(heading);
-    newCard.innerHTML +=
-        "<p><i>This card was created by JavaScript using createElement, " +
-        "createTextNode, and append.</i></p>";
 
-    // prepend — at start
+    var image = document.createElement("img");
+    image.src = "mascots/20_special.png";
+    image.alt = "Special Iron";
+    image.width = 170;
+    image.height = 200;
+    newCard.appendChild(image);
+
+    var text = document.createElement("p");
+    text.appendChild(document.createTextNode("This card was created by our special creator."));
+    newCard.appendChild(text);
+
     grid.prepend(newCard);
 
-    // after — add an info note right after the created card
     var note = document.createElement("p");
     note.style.margin = "8px 0";
     note.style.color = "#0d6d6d";
-    note.textContent = "Inserted with after(): helper note under the new dynamic card.";
+    note.textContent = "Special Iron appeared for a moment...";
     newCard.after(note);
 
-    // replace and remove sequence
     setTimeout(function () {
-        var replacement = document.createElement("div");
-        replacement.className = "sticker-card";
-        replacement.style.border = "2px solid #5cc8c8";
-        replacement.innerHTML =
-            "<h3>🔄 Replaced Card</h3>" +
-            "<p><i>This replaced the previous dynamic card using replaceWith().</i></p>";
-        newCard.replaceWith(replacement);
+        var replacementCard = document.createElement("div");
+        replacementCard.className = "sticker-card";
+        replacementCard.style.border = "2px solid #5cc8c8";
+        replacementCard.style.background = "#f0fafa";
+
+        var replacementHeading = document.createElement("h3");
+        replacementHeading.textContent = "Oops";
+        replacementCard.appendChild(replacementHeading);
+
+        var replacementImage = document.createElement("img");
+        replacementImage.src = "mascots/1_orignial.png";
+        replacementImage.alt = "Original Iron";
+        replacementImage.width = 200;
+        replacementImage.height = 200;
+        replacementCard.appendChild(replacementImage);
+
+        var replacementText = document.createElement("p");
+        replacementText.textContent = "You did not manage to see the special sticker.";
+        replacementCard.appendChild(replacementText);
+
+        newCard.replaceWith(replacementCard);
 
         setTimeout(function () {
-            replacement.remove();
+            replacementCard.remove();
             note.remove();
-        }, 3000);
+        }, 6000);
     }, 4000);
 
-    alert("Dynamic card added to top of variations! It will be replaced in 4s, then removed in 3s more.");
+    alert("Special sticker was added temporarily.");
 }
