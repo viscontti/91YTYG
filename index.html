@@ -21,7 +21,8 @@
         <a href="travels.html">Iron Around the World</a> &nbsp;|&nbsp;
         <a href="events.html">Events</a> &nbsp;|&nbsp;
         <a href="memes.html">Memes</a> &nbsp;|&nbsp;
-        <a href="https://t.me/ik91_memes" target="_blank">Telegram</a>
+        <a href="https://t.me/ik91_memes" target="_blank">Telegram</a> &nbsp;|&nbsp;
+        <a href="lab8.html">Lab 8</a>
 </nav>
 
 <div id="bg-counter" style="display:none; background:#1a8a8a; color:white;
@@ -40,17 +41,17 @@
 </h1>
 <script>
     document.write('<div style="background:#d4f5e9; ' +
-        'padding:8px 16px; border-left:4px solid #1a8a8a; margin-bottom:10px; ' +
-        'font-family:Trebuchet MS,Arial;">' +
-        'NEW PACK: SPRING COLLECTION' +
+        'padding:8px 16px; border-left:4px solid #1a8a8a; margin-bottom:11px; ' +
+        'font-family:Trebuchet MS,Arial; text-align: center;">' + 
+        '<marquee behavior = "slide">NEW PACK: SPRING COLLECTION</marquee>'+
         '</div>');
 </script>
 
-<script>
+<!-- <script>
        alert("Welcome to our website Iron Fan!");
        var name = prompt("Do you want to know a little more about the Iron?)", "");
        let ok = confirm("Let's go to the website!"); 
-</script>
+</script> -->
 
     <button onclick="dialogWithUser()"
             style="background:#5cc8c8; color:white; border:none; padding:10px 18px;
@@ -109,7 +110,6 @@
 </div>
 
 <hr>
-<h2 id="lab7-section" style="color:#1a8a8a;">⚡ Lab 7 — Events Demo</h2>
 
 <!-- Event info display -->
 <div id="event-info" style="display:none; background:#e8fafa; border:2px solid 
@@ -121,19 +121,13 @@
     <button onclick="removeObjectHandler()" 
             style="background:#ff6b6b; color:white; border:none; padding:8px 16px;
                    border-radius:6px; cursor:pointer; font-size:13px;">
-        🗑️ removeEventListener from Card 4
+        🗑️ Deactivated Card 4
     </button>
-    <span style="color:#2d6a6a; font-size:13px; margin-left:10px;">
-        (card 4 has object handler — click it, then remove it, then click again)
-    </span>
 </div>
 
 <!-- PART 2a: List delegation -->
-<h3 style="color:#1a8a8a;">📋 Sticker Types — click a type (delegation demo)</h3>
-<p style="color:#2d6a6a; font-size:13px;">
-    ONE onclick handler on &lt;ul&gt;, not on each &lt;li&gt;. 
-    Uses event.target.
-</p>
+<h3 style="color:#1a8a8a;">📋 Sticker Types — click a type</h3>
+
 <ul id="sticker-type-list" style="cursor:pointer; background:#f0fafa; 
     border:1px solid #5cc8c8; border-radius:6px; padding:10px 24px;">
     <li>🟢 Common — Original, Original with Glasses</li>
@@ -146,10 +140,8 @@
      margin:6px 0; min-height:18px;"></div>
 
 <!-- PART 2b: Menu with data-action -->
-<h3 style="color:#1a8a8a;">🎛️ Sticker Filter Menu — data-action delegation</h3>
-<p style="color:#2d6a6a; font-size:13px;">
-    ONE addEventListener on the menu div. Each button has data-action attribute.
-</p>
+<h3 style="color:#1a8a8a;">🎛️ Sticker Filter Menu</h3>
+
 <div id="sticker-action-menu" style="display:flex; gap:8px; flex-wrap:wrap; 
      margin:8px 0;">
     <button data-action="show-common" 
@@ -178,10 +170,9 @@
      margin:8px 0; color:#1a8a8a;"></div>
 
 <!-- PART 2c: Behavior pattern with data-* -->
-<h3 style="color:#1a8a8a;">🧠 Behavior Pattern — data-* attributes</h3>
+<h3 style="color:#1a8a8a;">🧠 Secret info</h3>
 <p style="color:#2d6a6a; font-size:13px;">
-    document-level click handler reads data-* attributes. 
-    No JS needed per element.
+   
 </p>
 
 <button data-toggle-id="iron-secret-info" 
@@ -456,7 +447,7 @@
 </div>
 <hr>
 
-<div class="sticker-card">
+<div class="sticker-card"> 
 <h3 id="cool">2. Original with Cool Glasses</h3>
 <img src="mascots/2_cool.png" alt="Iron with cool glasses" width="200" height="200">
 <p><i>The Original but make it fashion. Infinite swagger.</i></p>

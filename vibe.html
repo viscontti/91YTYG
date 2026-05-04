@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="91YTYG">
+    <meta name="description" content="Lab 8 mouse events demo for 91YTYG">
+    <meta name="keywords" content="91YTYG, lab 8, mouse events, drag and drop, iron stickers">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>91YTYG — Lab 8: Mouse Events</title>
+</head>
+<body>
+
+<nav align="center">
+        <a href="index.html">Home</a> &nbsp;|&nbsp;
+        <a href="travels.html">Iron Around the World</a> &nbsp;|&nbsp;
+        <a href="events.html">Events</a> &nbsp;|&nbsp;
+        <a href="memes.html">Memes</a> &nbsp;|&nbsp;
+        <a href="https://t.me/ik91_memes" target="_blank">Telegram</a> &nbsp;|&nbsp;
+        <a href="lab8.html"><b>Lab 8</b></a>
+</nav>
+
+<hr>
+
+<h1 align="center">Lab 8: Mouse Events</h1>
+
+<h2>Part 1 — mouseover / mouseout</h2>
+<div id="hover-demo-container">
+    <div class="hover-card" data-type="Common" data-color="#c8f0f0">
+        <h3>Common</h3>
+        <p>Original, Original with Glasses</p>
+        <span class="hover-label">25% drop rate</span>
+    </div>
+    <div class="hover-card" data-type="Uncommon" data-color="#d8ddff">
+        <h3>Uncommon</h3>
+        <p>Harry Potter, Clown, Rainbow</p>
+        <span class="hover-label">6-12% drop rate</span>
+    </div>
+    <div class="hover-card" data-type="Rare" data-color="#f6d0d8">
+        <h3>Rare</h3>
+        <p>Spider-Iron, Barbie</p>
+        <span class="hover-label">3% drop rate</span>
+    </div>
+    <div class="hover-card" data-type="Legendary" data-color="#ffe9b8">
+        <h3>Legendary</h3>
+        <p>Demon Main, Demon V1, Demon V2</p>
+        <span class="hover-label">0.5-1% drop rate</span>
+    </div>
+    <div class="hover-card" data-type="Special" data-color="#e8fafa">
+        <h3>Special</h3>
+        <p>Post-IRONic, Coal, Steampunk</p>
+        <span class="hover-label">Event-based drop rate</span>
+    </div>
+</div>
+
+<textarea id="mouse-log" readonly></textarea>
+<button onclick="clearLog()"
+        style="background:#1a8a8a; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer;">
+    Clear Mouse Log
+</button>
+
+<hr>
+
+<h2>Part 2 — Drag and Drop Iron Stickers</h2>
+<p>Drag the Iron sticker images into the correct rarity zones below.</p>
+
+<div id="sticker-source">
+    <img id="drag-original" class="drag-iron"
+         src="mascots/1_orignial.png"
+         alt="Original Iron" data-rarity="common">
+    <img id="drag-spider" class="drag-iron"
+         src="mascots/11_spider.png"
+         alt="Spider-Iron" data-rarity="rare">
+    <img id="drag-demon" class="drag-iron"
+         src="mascots/13_demon_main.png"
+         alt="Demon Iron" data-rarity="legendary">
+    <img id="drag-barbie" class="drag-iron"
+         src="mascots/12_barbie.png"
+         alt="Barbie Iron" data-rarity="rare">
+</div>
+
+<div class="drop-zones-container">
+    <div class="drop-zone droppable" data-zone="common" id="zone-common">
+        <h3>Common Zone</h3>
+        <p>Drop common stickers here</p>
+    </div>
+    <div class="drop-zone droppable" data-zone="rare" id="zone-rare">
+        <h3>Rare Zone</h3>
+        <p>Drop rare stickers here</p>
+    </div>
+    <div class="drop-zone droppable" data-zone="legendary" id="zone-legendary">
+        <h3>Legendary Zone</h3>
+        <p>Drop legendary stickers here</p>
+    </div>
+</div>
+
+<div id="drop-result" style="display:none;"></div>
+
+<hr>
+<p align="center"><i>91YTYG Meme Community &copy; 2023-2026</i></p>
+
+<script src="script.js"></script>
+<script src="mouse8.js"></script>
+</body>
+</html>

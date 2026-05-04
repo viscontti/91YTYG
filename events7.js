@@ -61,14 +61,12 @@ var cardObjectHandler = {
         // event.currentTarget — element where handler is attached
         var card = event.currentTarget;
         var info = document.getElementById("event-info");
-        if (info) {
-            info.textContent =
-                "handleEvent fired! " +
-                "Event: " + event.type + " | " +
-                "currentTarget: " + card.tagName +
-                " #" + (card.id || card.className.split(" ")[0]);
-            info.style.display = "block";
-        }
+      if (info) {
+    info.textContent =
+        "4 Card was clicked! " +
+        "Event: " + event.type;
+    info.style.display = "block";
+}
         card.style.outline = "3px solid #ff6b6b";
         setTimeout(function() {
             card.style.outline = "";
@@ -91,7 +89,7 @@ function removeObjectHandler() {
         var info = document.getElementById("event-info");
         if (info) {
             info.textContent =
-                "removeEventListener called — object handler removed from card 4. " +
+                "You've deactivated the fourth card. " +
                 "Clicking card 4 now does nothing.";
             info.style.display = "block";
         }
@@ -132,8 +130,7 @@ function initListDelegation() {
         var info = document.getElementById("list-info");
         if (info) {
             info.textContent =
-                "Clicked: " + event.target.textContent +
-                " | event.target.tagName = " + event.target.tagName;
+                "Clicked: " + event.target.textContent 
         }
     };
 }
